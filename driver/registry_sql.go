@@ -22,6 +22,7 @@ import (
 	"github.com/ory/herodot"
 	"github.com/ory/hydra/v2/aead"
 	"github.com/ory/hydra/v2/client"
+	"github.com/ory/hydra/v2/client/redirectaudit"
 	"github.com/ory/hydra/v2/consent"
 	"github.com/ory/hydra/v2/driver/config"
 	"github.com/ory/hydra/v2/fosite"
@@ -342,6 +343,7 @@ func (m *RegistrySQL) RegisterAdminRoutes(admin *httprouterx.RouterAdmin) {
 	consent.NewHandler(m).SetRoutes(admin)
 	jwk.NewHandler(m).SetAdminRoutes(admin)
 	client.NewHandler(m).SetAdminRoutes(admin)
+	redirectaudit.NewHandler(m).SetAdminRoutes(admin)
 	oauth2.NewHandler(m).SetAdminRoutes(admin)
 	trust.NewHandler(m).SetRoutes(admin)
 }
